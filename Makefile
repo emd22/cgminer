@@ -131,8 +131,8 @@ am__append_5 = crc16.c crc.h
 #am__append_26 = driver-bitmain.c driver-bitmain.h
 #am__append_27 = driver-btm-c5.c driver-btm-c5.h sha2_c5.c sha2_c5.h
 #am__append_28 = driver-btm-L3.c driver-btm-L3.h 
-#am__append_29 = driver-btm-DASH.c driver-btm-DASH.h 
-#am__append_30 = $(X11_CPPFLAGS)
+am__append_29 = driver-btm-DASH.c driver-btm-DASH.h 
+am__append_30 = $(X11_CPPFLAGS)
 #am__append_31 = driver-modminer.c
 #am__append_32 = driver-blockerupter.c driver-blockerupter.h
 subdir = .
@@ -234,8 +234,8 @@ am__objects_4 = cgminer-crc16.$(OBJEXT)
 #am__objects_25 = cgminer-driver-btm-c5.$(OBJEXT) \
 #	cgminer-sha2_c5.$(OBJEXT)
 #am__objects_26 = cgminer-driver-btm-L3.$(OBJEXT)
-#am__objects_27 =  \
-#	cgminer-driver-btm-DASH.$(OBJEXT)
+am__objects_27 =  \
+	cgminer-driver-btm-DASH.$(OBJEXT)
 #am__objects_28 = cgminer-driver-modminer.$(OBJEXT)
 #am__objects_29 =  \
 #	cgminer-driver-blockerupter.$(OBJEXT)

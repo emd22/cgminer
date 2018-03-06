@@ -114,28 +114,28 @@ static void cubeHash(unsigned char *input, unsigned char *outhash)
 	sph_cubehash512_close(&cc,outhash);
 }
 
-static void hamsiHash(unsigned char *input, unsigned char *outhash) {
+void hamsiHash(unsigned char *input, unsigned char *outhash) {
 	sph_hamsi_big_context cc;
 	sph_hamsi224_init(&cc);
 	sph_hamsi224(&cc, input, 64);
 	sph_hamsi224_close(&cc, outhash);
 }
 
-static void fugueHash(unsigned char *input, unsigned char *outhash) {
+void fugueHash(unsigned char *input, unsigned char *outhash) {
 	sph_fugue224_context cc;
 	sph_fugue224_init(&cc);
 	sph_fugue224(&cc, input, 64);
 	sph_fugue224_close(&cc, outhash);
 }
 
-static void shabalHash(unsigned char *input, unsigned char *outhash) {
+void shabalHash(unsigned char *input, unsigned char *outhash) {
 	sph_shabal_context cc;
 	sph_shabal192_init(&cc);
 	sph_shabal192(&cc, input, 64);
 	sph_shabal192_close(&cc, outhash);
 }
 
-static void whirlpoolHash(unsigned char *input, unsigned char *outhash) {
+void whirlpoolHash(unsigned char *input, unsigned char *outhash) {
 	sph_whirlpool0_context cc;
 	sph_whirlpool0_init(&cc);
 	sph_whirlpool0(&cc, input, 64);

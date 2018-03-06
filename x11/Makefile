@@ -125,7 +125,9 @@ am_libx11_a_OBJECTS = libx11_a-cubehash.$(OBJEXT) \
 	libx11_a-echo.$(OBJEXT) libx11_a-groestl.$(OBJEXT) \
 	libx11_a-jh.$(OBJEXT) libx11_a-luffa.$(OBJEXT) \
 	libx11_a-shavite.$(OBJEXT) libx11_a-simd.$(OBJEXT) \
-	libx11_a-xcoin.$(OBJEXT)
+	libx11_a-xcoin.$(OBJEXT) libx11_a-fugue.$(OBJEXT) \
+	libx11_a-hamsi.$(OBJEXT) libx11_a-shabal.$(OBJEXT) \
+	libx11_a-whirlpool.$(OBJEXT)
 libx11_a_OBJECTS = $(am_libx11_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -461,7 +463,7 @@ top_builddir = ..
 top_srcdir = ..
 version_info = 13:0:9
 noinst_LIBRARIES = libx11.a
-libx11_a_SOURCES = cubehash.c defs_x5.h echo.c groestl.c jh.c luffa.c shavite.c simd.c sph_blake.h sph_bmw.h sph_cubehash.h sph_echo.h sph_groestl.h sph_jh.h sph_keccak.h sph_luffa.h sph_shavite.h sph_simd.h sph_skein.h sph_types.h xcoin.c
+libx11_a_SOURCES = cubehash.c defs_x5.h echo.c groestl.c jh.c luffa.c shavite.c simd.c sph_blake.h sph_bmw.h sph_cubehash.h sph_echo.h sph_groestl.h sph_jh.h sph_keccak.h sph_luffa.h sph_shavite.h sph_simd.h sph_skein.h sph_types.h xcoin.c sph_fugue.h fugue.c sph_hamsi.h hamsi.c sph_shabal.h shabal.c sph_whirlpool.h whirlpool.c
 libx11_a_CPPFLAGS = -I$(top_srcdir)
 all: all-am
 
@@ -513,11 +515,15 @@ distclean-compile:
 
 include ./$(DEPDIR)/libx11_a-cubehash.Po
 include ./$(DEPDIR)/libx11_a-echo.Po
+include ./$(DEPDIR)/libx11_a-fugue.Po
 include ./$(DEPDIR)/libx11_a-groestl.Po
+include ./$(DEPDIR)/libx11_a-hamsi.Po
 include ./$(DEPDIR)/libx11_a-jh.Po
 include ./$(DEPDIR)/libx11_a-luffa.Po
+include ./$(DEPDIR)/libx11_a-shabal.Po
 include ./$(DEPDIR)/libx11_a-shavite.Po
 include ./$(DEPDIR)/libx11_a-simd.Po
+include ./$(DEPDIR)/libx11_a-whirlpool.Po
 include ./$(DEPDIR)/libx11_a-xcoin.Po
 
 .c.o:
@@ -655,6 +661,62 @@ libx11_a-xcoin.obj: xcoin.c
 #	$(AM_V_CC)source='xcoin.c' object='libx11_a-xcoin.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-xcoin.obj `if test -f 'xcoin.c'; then $(CYGPATH_W) 'xcoin.c'; else $(CYGPATH_W) '$(srcdir)/xcoin.c'; fi`
+
+libx11_a-fugue.o: fugue.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-fugue.o -MD -MP -MF $(DEPDIR)/libx11_a-fugue.Tpo -c -o libx11_a-fugue.o `test -f 'fugue.c' || echo '$(srcdir)/'`fugue.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-fugue.Tpo $(DEPDIR)/libx11_a-fugue.Po
+#	$(AM_V_CC)source='fugue.c' object='libx11_a-fugue.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-fugue.o `test -f 'fugue.c' || echo '$(srcdir)/'`fugue.c
+
+libx11_a-fugue.obj: fugue.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-fugue.obj -MD -MP -MF $(DEPDIR)/libx11_a-fugue.Tpo -c -o libx11_a-fugue.obj `if test -f 'fugue.c'; then $(CYGPATH_W) 'fugue.c'; else $(CYGPATH_W) '$(srcdir)/fugue.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-fugue.Tpo $(DEPDIR)/libx11_a-fugue.Po
+#	$(AM_V_CC)source='fugue.c' object='libx11_a-fugue.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-fugue.obj `if test -f 'fugue.c'; then $(CYGPATH_W) 'fugue.c'; else $(CYGPATH_W) '$(srcdir)/fugue.c'; fi`
+
+libx11_a-hamsi.o: hamsi.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-hamsi.o -MD -MP -MF $(DEPDIR)/libx11_a-hamsi.Tpo -c -o libx11_a-hamsi.o `test -f 'hamsi.c' || echo '$(srcdir)/'`hamsi.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-hamsi.Tpo $(DEPDIR)/libx11_a-hamsi.Po
+#	$(AM_V_CC)source='hamsi.c' object='libx11_a-hamsi.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-hamsi.o `test -f 'hamsi.c' || echo '$(srcdir)/'`hamsi.c
+
+libx11_a-hamsi.obj: hamsi.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-hamsi.obj -MD -MP -MF $(DEPDIR)/libx11_a-hamsi.Tpo -c -o libx11_a-hamsi.obj `if test -f 'hamsi.c'; then $(CYGPATH_W) 'hamsi.c'; else $(CYGPATH_W) '$(srcdir)/hamsi.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-hamsi.Tpo $(DEPDIR)/libx11_a-hamsi.Po
+#	$(AM_V_CC)source='hamsi.c' object='libx11_a-hamsi.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-hamsi.obj `if test -f 'hamsi.c'; then $(CYGPATH_W) 'hamsi.c'; else $(CYGPATH_W) '$(srcdir)/hamsi.c'; fi`
+
+libx11_a-shabal.o: shabal.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-shabal.o -MD -MP -MF $(DEPDIR)/libx11_a-shabal.Tpo -c -o libx11_a-shabal.o `test -f 'shabal.c' || echo '$(srcdir)/'`shabal.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-shabal.Tpo $(DEPDIR)/libx11_a-shabal.Po
+#	$(AM_V_CC)source='shabal.c' object='libx11_a-shabal.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-shabal.o `test -f 'shabal.c' || echo '$(srcdir)/'`shabal.c
+
+libx11_a-shabal.obj: shabal.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-shabal.obj -MD -MP -MF $(DEPDIR)/libx11_a-shabal.Tpo -c -o libx11_a-shabal.obj `if test -f 'shabal.c'; then $(CYGPATH_W) 'shabal.c'; else $(CYGPATH_W) '$(srcdir)/shabal.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-shabal.Tpo $(DEPDIR)/libx11_a-shabal.Po
+#	$(AM_V_CC)source='shabal.c' object='libx11_a-shabal.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-shabal.obj `if test -f 'shabal.c'; then $(CYGPATH_W) 'shabal.c'; else $(CYGPATH_W) '$(srcdir)/shabal.c'; fi`
+
+libx11_a-whirlpool.o: whirlpool.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-whirlpool.o -MD -MP -MF $(DEPDIR)/libx11_a-whirlpool.Tpo -c -o libx11_a-whirlpool.o `test -f 'whirlpool.c' || echo '$(srcdir)/'`whirlpool.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-whirlpool.Tpo $(DEPDIR)/libx11_a-whirlpool.Po
+#	$(AM_V_CC)source='whirlpool.c' object='libx11_a-whirlpool.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-whirlpool.o `test -f 'whirlpool.c' || echo '$(srcdir)/'`whirlpool.c
+
+libx11_a-whirlpool.obj: whirlpool.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libx11_a-whirlpool.obj -MD -MP -MF $(DEPDIR)/libx11_a-whirlpool.Tpo -c -o libx11_a-whirlpool.obj `if test -f 'whirlpool.c'; then $(CYGPATH_W) 'whirlpool.c'; else $(CYGPATH_W) '$(srcdir)/whirlpool.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libx11_a-whirlpool.Tpo $(DEPDIR)/libx11_a-whirlpool.Po
+#	$(AM_V_CC)source='whirlpool.c' object='libx11_a-whirlpool.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libx11_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libx11_a-whirlpool.obj `if test -f 'whirlpool.c'; then $(CYGPATH_W) 'whirlpool.c'; else $(CYGPATH_W) '$(srcdir)/whirlpool.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

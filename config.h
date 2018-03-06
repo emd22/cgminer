@@ -360,7 +360,7 @@
 /* #undef USE_BITMAIN_C5 */
 
 /* Defined to 1 if Bitmain D1 support is wanted */
-/* #undef USE_BITMAIN_D1 */
+#define USE_BITMAIN_D1 1
 
 /* Defined to 1 if Bitmain L3 support is wanted */
 /* #undef USE_BITMAIN_L3 */
