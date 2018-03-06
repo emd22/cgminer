@@ -13,10 +13,6 @@
 #include "sph_luffa.h"
 #include "sph_cubehash.h"
 #include "sph_echo.h"
-#include "sph_whirlpool.h"
-#include "sph_hamsi.h"
-#include "sph_fugue.h"
-#include "sph_shabal.h"
 /////////////////////////////////////////////////////////////////////////////////
 
 #include "sph_shavite.h"
@@ -112,34 +108,6 @@ static void cubeHash(unsigned char *input, unsigned char *outhash)
 	sph_cubehash512_init(&cc);
 	sph_cubehash512(&cc,input,64);
 	sph_cubehash512_close(&cc,outhash);
-}
-
-static void hamsiHash(unsigned char *input, unsigned char *outhash) {
-	sph_hamsi_big_context cc;
-	sph_hamsi224_init(&cc);
-	sph_hamsi224(&cc, input, 64);
-	sph_hamsi224_close(&cc, outhash);
-}
-
-static void fugueHash(unsigned char *input, unsigned char *outhash) {
-	sph_fugue224_context cc;
-	sph_fugue224_init(&cc);
-	sph_fugue224(&cc, input, 64);
-	sph_fugue224_close(&cc, outhash);
-}
-
-static void shabalHash(unsigned char *input, unsigned char *outhash) {
-	sph_shabal_context cc;
-	sph_shabal192_init(&cc);
-	sph_shabal192(&cc, input, 64);
-	sph_shabal192_close(&cc, outhash);
-}
-
-static void whirlpoolHash(unsigned char *input, unsigned char *outhash) {
-	sph_whirlpool0_context cc;
-	sph_whirlpool0_init(&cc);
-	sph_whirlpool0(&cc, input, 64);
-	sph_whirlpool0_close(&cc, outhash);
 }
 
 static void simdHash(unsigned char *input, unsigned char *outhash)
@@ -322,11 +290,6 @@ void Xhash(void *state, const void *input)
 	 printf("hash64=%s\n",strInfo);
 #endif
 
-	shabalHash(hash, hash);
-	whirlpoolHash(hash, hash);
-	hamsiHash(hash, hash);
-	fugueHash(hash, hash);
-
     memcpy(state, hashA, 32);
 }
 
@@ -506,7 +469,7 @@ void doOneGoldenData(int testIndex)
 	else printf("This is NOT golden nonce!\n");
 }
 
-bool doHash_X11(uint32_t *pworkdata, const uint32_t *pworktarget, unsigned char *outHash)
+bool dohash_X11(uint32_t *pworkdata, const uint32_t *pworktarget, unsigned char *outHash)
 {
     uint32_t hash64[8] __attribute__((aligned(32)));
     uint32_t endiandata[32];
